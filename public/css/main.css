@@ -6873,8 +6873,8 @@ body.compensate-for-scrollbar {
   font-style: normal;
   font-weight: 400;
   font-display: block;
-  src: url(../css/fa-brands-400-c1868c9545d2de1cf8488f1dadd8c9d0.eot);
-  src: url(../css/fa-brands-400.eot?#iefix) format("embedded-opentype"), url(../css/fa-brands-400-a06da7f0950f9dd366fc9db9d56d618a.woff2) format("woff2"), url(../css/fa-brands-400-ec3cfddedb8bebd2d7a3fdf511f7c1cc.woff) format("woff"), url(../css/fa-brands-400-13685372945d816a2b474fc082fd9aaa.ttf) format("truetype"), url(../css/fa-brands-400.svg#fontawesome) format("svg")
+  src: url(../css/fa-brands.eot);
+  src: url(../css/fa-brands-400.eot?#iefix) format("embedded-opentype"), url(../css/fa-brands.woff2) format("woff2"), url(../css/fa-brands-400-ec3cfddedb8bebd2d7a3fdf511f7c1cc.woff) format("woff"), url(../css/fa-brands-400-13685372945d816a2b474fc082fd9aaa.ttf) format("truetype"), url(../css/fa-brands-400.svg#fontawesome) format("svg")
 }
 
 .fab {
@@ -7902,6 +7902,10 @@ a.blog-preview--readmore:hover:before {
   max-width: 1140px;
   padding: 0 20px;
   margin: 0 auto
+}
+
+.container-fluid {
+  min-height: 765px;
 }
 
 .inline-block {

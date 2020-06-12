@@ -1,6 +1,15 @@
 <template>
   <div id="app">
     <headers></headers>
+    <div id="main">
+      <div class="compass body--container container-fluid">
+        <div class="row">
+          <menus></menus>
+          <!-- <contents></contents> -->
+        </div>
+      </div>
+    </div>
+    <footers></footers>
   </div>
 </template>
 
@@ -8,7 +17,9 @@
   export default {
     name: 'App',
     components: {
-      headers: () => import('views/headers.vue')
+      headers: () => import('views/frame/headers.vue'),
+      menus: () => import('views/frame/menus.vue'),
+      footers: () => import('views/frame/footers.vue')
     }
   }
 </script>

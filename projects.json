@@ -1,0 +1,71 @@
+{
+  "projects": [{
+      "key": "project-one",
+      "name": "产品一",
+      "url": "",
+      "children": []
+    },
+    {
+      "key": "project-two",
+      "name": "产品二",
+      "url": "",
+      "children": [{
+          "key": "project-two-one",
+          "name": "产品二.一",
+          "url": ""
+        },
+        {
+          "key": "project-two-two",
+          "name": "产品二.二",
+          "url": ""
+        },
+        {
+          "key": "project-two-three",
+          "name": "产品二.三",
+          "url": ""
+        },
+        {
+          "key": "project-two-four",
+          "name": "产品二.四",
+          "url": ""
+        },
+        {
+          "key": "project-two-five",
+          "name": "产品二.五",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "key": "project-three",
+      "name": "产品三",
+      "url": "",
+      "children": [{
+          "key": "project-three-one",
+          "name": "产品三.一",
+          "url": ""
+        },
+        {
+          "key": "project-two-two",
+          "name": "产品三.二",
+          "url": ""
+        },
+        {
+          "key": "project-two-three",
+          "name": "产品三.三",
+          "url": ""
+        },
+        {
+          "key": "project-two-four",
+          "name": "产品三.四",
+          "url": ""
+        },
+        {
+          "key": "project-two-five",
+          "name": "产品三.五",
+          "url": ""
+        }
+      ]
+    }
+  ]
+}

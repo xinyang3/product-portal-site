@@ -25,6 +25,7 @@ module.exports = {
         cacheGroups: {}
       });
     config.resolve.alias
+      .set('root', path.resolve(__dirname, '.'))
       .set('@', path.resolve(__dirname, 'src'))
       .set('src', path.resolve(__dirname, 'src'))
       .set('views', path.resolve(__dirname, 'src/views'))
