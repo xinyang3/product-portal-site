@@ -1,54 +1,17 @@
 <template>
   <div class="sidebar hide-sm col-md-3">
-    <!-- <ul class="sidebar_main">
-    <li class="sidebar_project child-inactive">
-      <div>
-        <a href="https://spring.io/projects/spring-boot">Spring Boot</a>
-      </div>
-    </li>
-    <li class="sidebar_project child-inactive">
-      <div>
-        <a href="https://spring.io/projects/spring-framework">Spring Framework</a>
-      </div>
-    </li>
-    <li class="sidebar_project active">
-      <div>
-        <a href="https://spring.io/projects/spring-data">Spring Data</a>
-        <i aria-hidden="true" class="fas fa-chevron-down"></i>
-      </div>
-      <ul class="sidebar_children">
-        <li class="sidebar_child">
-          <a href="https://spring.io/projects/spring-data-jdbc">
-            <span>Spring Data JDBC</span>
-          </a>
-        </li>
-      </ul>
-    </li>
-    <li class="sidebar_project child-inactive">
-      <div>
-        <a href="https://spring.io/projects/spring-cloud">Spring Cloud</a>
-        <i aria-hidden="true" class="fas fa-chevron-right"></i>
-      </div>
-    </li>
-    <li class="sidebar_project child-inactive">
-      <div>
-        <a href="https://spring.io/projects/spring-cloud-dataflow">Spring Cloud Data Flow</a>
-      </div>
-    </li>
-    </ul> -->
-
     <ul class="sidebar_main">
-      <li class="sidebar_project child-inactive" v-for="menu in projects" :key="menu.name"
-        :class="{active: menu.name === activeIndex}" @click.stop="itemClick($event, menu)">
+      <li class="sidebar_project child-inactive" v-for="menu in projects" :key="menu.key"
+        :class="{active: menu.key === activeIndex}" @click.stop="menuClick($event, menu)">
         <div>
-          <a href="#">{{menu.name}}</a>
+          <a :href="'#/' + menu.urlName">{{menu.name}}</a>
           <i aria-hidden="true" class="fas fa-chevron-down" v-if="menu.children && menu.children.length > 0"></i>
         </div>
         <template v-if="menu.children && menu.children.length > 0">
-          <ul class="sidebar_children">
-            <li class="sidebar_child" v-for="item in menu.children" :key="item.name"
-              :class="{active: item.name === activeIndex}" @click.stop="itemClick(null, item)">
-              <a href="#">
+          <ul class="sidebar_children" :class="baractive(menu)">
+            <li class="sidebar_child" v-for="item in menu.children" :key="item.key"
+              :class="{active: item.key === activeIndex}" @click.stop="subMenuClick(null, item)">
+              <a :href="'#/' + item.urlName">
                 <span>{{item.name}}</span>
               </a>
             </li>
@@ -74,6 +37,24 @@
     menus.forEach(menu => menu.key !== cmenu.key ? menu.collapse = false : '');
   }
 
+  const contain = function (menu, key) {
+    if (menu.key === key) return true;
+    let result = false;
+    if (menu.children && menu.children.length > 0) {
+      let i, item = null;
+      for (i = 0; i < menu.children.length; i++) {
+        let item = menu.children[i];
+        result = contain(item, key)
+        if (result) {
+          return result;
+        } else {
+          continue
+        }
+      }
+    }
+    return result;
+  }
+
   export default {
     name: 'menus',
     data() {
@@ -83,8 +64,8 @@
       }
     },
     methods: {
-      itemClick(event, menu) {
-        this.activeIndex = menu.name;
+      menuClick(event, menu) {
+        this.activeIndex = menu.key;
         setMenusCollapse(this.projects, menu)
         if (menu.children && menu.children.length > 0) {
           menu.collapse = !menu.collapse;
@@ -94,13 +75,31 @@
             setDomHeight(event.target.parentNode.parentNode.lastChild, 0)
           }
         }
+        this.$router.push({
+          name: menu.urlName
+        })
+      },
+      subMenuClick(event, menu) {
+        this.activeIndex = menu.key;
+        this.$router.push({
+          name: menu.urlName
+        })
+      }
+    },
+    computed: {
+      baractive() {
+        return (menu) => {
+          return {
+            'baractive': contain(menu, this.activeIndex)
+          }
+        }
       }
     }
 
   }
 </script>
 <style scoped>
-  .sidebar_project.active .sidebar_children {
+  .sidebar_project .sidebar_children.baractive {
     /* height: auto; */
     opacity: 1;
   }

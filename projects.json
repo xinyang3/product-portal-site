@@ -1,8 +1,13 @@
 {
   "projects": [{
-      "key": "project-one",
+      "key": "project-position-service",
+      "name": "上海烟草集团园区位置服务",
+      "urlName": "product-position-service"
+    },
+    {
+      "key": "product-one",
       "name": "产品一",
-      "url": "",
+      "urlName": "product-one",
       "children": []
     },
     {
@@ -66,6 +71,19 @@
           "url": ""
         }
       ]
+    }
+  ],
+  "abouts": [{
+      "key": "join",
+      "name": "加入我们"
+    },
+    {
+      "key": "contact",
+      "name": "联系方式"
+    },
+    {
+      "key": "about",
+      "name": "企业介绍"
     }
   ]
 }

@@ -32,27 +32,22 @@
           @mouseover.stop="mouseover('projects')" @mouseout.stop="mouseout">
           <div class="drop-target" id="project-target"></div>
           <ul>
-            <li><a href="/projects" tabindex="18">产品一</a></li>
-            <li><a href="/projects/spring-boot" tabindex="19">产品二</a></li>
-            <li><a href="/projects/spring-framework" tabindex="20">产品三</a></li>
-            <li><a href="/projects/spring-cloud" tabindex="21">产品四</a></li>
-            <li><a href="/projects/spring-cloud-dataflow" tabindex="22">产品五</a></li>
-            <li><a href="/projects/spring-data" tabindex="23">产品六</a></li>
-            <li><a href="/projects" tabindex="18">产品一</a></li>
-            <li><a href="/projects/spring-boot" tabindex="19">产品二</a></li>
-            <li><a href="/projects/spring-framework" tabindex="20">产品三</a></li>
-            <li><a href="/projects/spring-cloud" tabindex="21">产品四</a></li>
-            <li><a href="/projects/spring-cloud-dataflow" tabindex="22">产品五</a></li>
-            <li><a href="/projects/spring-data" tabindex="23">产品六</a></li>
+            <!-- <li><a href="/projects" tabindex="18">产品一</a></li> -->
+            <li v-for="(item, index) in projects" :key="item.key">
+              <a :href="'#/' + item.urlName" :tabindex="index">{{item.name}}</a>
+            </li>
           </ul>
         </div>
         <div class="drop-menu" :class="{active: activetab === 'community'}" id="community-items"
           @mouseover.stop="mouseover('community')" @mouseout.stop="mouseout">
           <div class="drop-target" id="community-target"></div>
           <ul>
-            <li><a href="/community" tabindex="33">加入我们</a></li>
+            <!-- <li><a href="/community" tabindex="33">加入我们</a></li>
             <li><a href="/events" tabindex="34">联系方式</a></li>
-            <li><a href="/team" tabindex="35">企业介绍</a></li>
+            <li><a href="/team" tabindex="35">企业介绍</a></li> -->
+            <li v-for="(item, index) in abouts" :key="item.key">
+              <a :href="'#/' + item.urlName" :tabindex="index">{{item.name}}</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -60,11 +55,15 @@
   </header>
 </template>
 <script>
+  import projects from 'root/projects.json'
+
   export default {
     name: 'headers',
     data() {
       return {
-        activetab: ''
+        activetab: '',
+        projects: projects.projects,
+        abouts: projects.abouts
       }
     },
     computed: {
