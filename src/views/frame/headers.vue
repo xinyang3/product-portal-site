@@ -3,7 +3,7 @@
     <nav id="nav">
       <div class="container flex jc-between ai-center" id="nav-inner">
         <a href="/" id="logo-focus" tabindex="1">
-          <img alt="logo" class="block" id="springlogo" src="/images/logo.png">
+          <img alt="logo" class="block" id="springlogo" src="../../../public/images/logo.png">
         </a>
         <ul class="flex jc-between" id="nav-items">
           <li>

@@ -7407,7 +7407,7 @@ body#training footer {
 
 footer #top {
   background-color: #ebf2f2;
-  padding: 80px 0;
+  padding: 40px 0 20px 0;
   overflow: hidden
 }
 
@@ -7425,10 +7425,10 @@ footer #top .flex p {
 }
 
 footer #green-circle-sm {
-  height: 345px;
-  width: 345px;
-  right: -345px;
-  bottom: -140px
+  height: 280px;
+  width: 280px;
+  right: -262px;
+  bottom: -200px;
 }
 
 footer #green-circle-lg,

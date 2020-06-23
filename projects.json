@@ -13,7 +13,7 @@
     {
       "key": "project-two",
       "name": "产品二",
-      "url": "",
+      "urlName": "product-two",
       "children": [{
           "key": "project-two-one",
           "name": "产品二.一",
@@ -44,7 +44,7 @@
     {
       "key": "project-three",
       "name": "产品三",
-      "url": "",
+      "urlName": "product-three",
       "children": [{
           "key": "project-three-one",
           "name": "产品三.一",

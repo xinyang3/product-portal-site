@@ -20,6 +20,16 @@ export const router = new VueRouter({
       component: () => import('../views/products/product-one.vue')
     },
     {
+      path: '/product-two',
+      name: 'product-two',
+      component: () => import('../views/products/product-two.vue')
+    },
+    {
+      path: '/product-three',
+      name: 'product-three',
+      component: () => import('../views/products/product-three.vue')
+    },
+    {
       path: '/',
       redirect: '/product-position-service'
     },
